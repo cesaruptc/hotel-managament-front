@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import {Icon} from "@iconify/react";
+import styles from "./Logout.module.css";
 
 const Logout = () => {
     const navigate = useNavigate();
@@ -11,7 +13,9 @@ const Logout = () => {
 
     return (
         <div>
-            <button onClick={handleLogout}>Cerrar sesión</button>
+            <button onClick={handleLogout} className={styles.logoutButton}>
+                <Icon icon="majesticons:logout-line" width={40} height={40} />
+            </button>
         </div>
     );
 };

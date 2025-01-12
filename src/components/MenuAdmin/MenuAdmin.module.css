@@ -1,0 +1,30 @@
+.navContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.navButton {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 200px;
+    text-align: left;
+}
+
+.navButton:hover {
+    color: #007bff;
+}
+
+.icon {
+    font-size: 24px;
+    margin-right: 10px; /* Espacio entre el icono y el texto */
+}

@@ -2,9 +2,14 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {jwtDecode} from "jwt-decode";
 import Logout from "../../components/Logout/Logout.jsx";
+import styles from "./AdminHome.module.css"
+import TopBar from "../../components/TopBar/TopBar.jsx";
+import MenuAdmin from "../../components/MenuAdmin/MenuAdmin.jsx";
+import Hotels from "../../components/Hotels/Hotels.jsx";
 
 const AdminHome = () => {
     const [loading, setLoading] = useState(true);
+    const [content, setContent] = useState("");
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -36,9 +41,28 @@ const AdminHome = () => {
         return <div>Loading...</div>;
     }
 
+    const renderContent = () => {
+        switch (content) {
+            case "usuarios":
+                return <div>Lista de usuarios</div>;
+            case "hoteles":
+                return <Hotels/>;
+            case "reservas":
+                return <div>Lista de reservas</div>;
+            default:
+                return <div>Selecciona una opción</div>;
+        }
+    };
+
     return (
-        <div>
-            <h1>Bienvenido, Admin</h1>
+        <div className={styles.homeContainer}>
+            <TopBar />
+            <div className={styles.left}>
+                <MenuAdmin setContent={setContent}></MenuAdmin>
+            </div>
+            <div className={styles.mainContent}>
+                {renderContent()}
+            </div>
             <Logout />
         </div>
     );

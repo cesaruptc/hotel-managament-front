@@ -1,0 +1,14 @@
+.logoutButton {
+    border: none;
+    background: none;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    transition: color 0.3s ease;
+    z-index: 20;
+}
+
+.logoutButton:hover {
+    color: #FE2020;
+}
