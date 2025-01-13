@@ -8,7 +8,20 @@ export const useReservations = () => {
     const fetchReservations = async () => {
         setIsLoading(true);
         try {
-            const response = await fetch("https://hotel-managament-back.onrender.com/api/reservations");
+            const token = localStorage.getItem("token");
+
+            if (!token) {
+                throw new Error("No se encontró ningún token, inicie sesión");
+            }
+
+            const response = await fetch("https://hotel-managament-back.onrender.com/api/reservations", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`,  // Incluir el token en la cabecera
+                },
+            });
+
             if (!response.ok) {
                 throw new Error("Error al cargar las reservas");
             }

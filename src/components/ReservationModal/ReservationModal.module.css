@@ -1,0 +1,120 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.modalContent {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    max-width: 90%;
+    z-index: 1001;
+    position: relative;
+}
+
+.buttonsContainer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.modalCloseButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.modalCloseButton:hover {
+    color: red;
+}
+
+.createText {
+    align-items: center;
+    font-family: Arial, sans-serif;
+    margin-bottom: 1rem;
+}
+
+.label {
+    color: black;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    font-family: Arial, sans-serif;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.label::after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: #dcdcdc;
+    margin-top: 5px;
+}
+
+.input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    color: black;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.input::placeholder {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.input:focus {
+    background: rgba(20, 0, 0, 0.25);
+    border-color: rgba(0, 0, 0, 0.5);
+}
+
+.deleteButton, .saveButton {
+    color: black;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    width: 5rem;
+    height: 2rem;
+    border-radius: 5%;
+    cursor: pointer;
+    background-color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.deleteButton {
+    box-shadow: 0 4px 8px rgba(165, 27, 20, 0.5);
+}
+
+.saveButton {
+    box-shadow: 0 4px 8px rgba(20, 8, 165, 0.5);
+}
+
+.deleteButton:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(165, 27, 10, 0.7);
+}
+
+.saveButton:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(20, 8, 165, 0.7);
+}
