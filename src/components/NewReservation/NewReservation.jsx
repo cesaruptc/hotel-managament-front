@@ -4,7 +4,6 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage.jsx";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {useHotels} from "../../hooks/useHotels.jsx";
-import {jwtDecode} from "jwt-decode";
 
 const NewReservation = ({ onClose, onCreate }) => {
     const [hotel, setHotel] = useState("");
@@ -47,18 +46,10 @@ const NewReservation = ({ onClose, onCreate }) => {
         }
 
         try {
-            const decodedToken = jwtDecode(token);
-            const userId = decodedToken.user_id;
-            if (!userId) {
-                setErrorMessage("No se encontró el ID de usuario en el token.");
-                return;
-            }
-
             const reservationData = {
                 hotel_id: hotel,
                 check_in_date: formattedCheckInDate,
                 check_out_date: formattedCheckOutDate,
-                user_id: userId,
             };
 
             console.log("Datos a enviar: ", reservationData);

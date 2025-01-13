@@ -28,3 +28,19 @@
     top: 10px;
     right: 10px;
 }
+
+.defaultContent {
+    text-align: center;
+    color: black;
+    font-family: Arial, sans-serif;
+    font-size: 2rem;
+    text-shadow: 1px 1px 1px green;
+}
+
+.imageBackground {
+    background-image: url("../../assets/images/robot2.png");
+    background-size: cover;
+    background-position: center;
+    height: 20rem;
+    margin-top: 3rem;
+}

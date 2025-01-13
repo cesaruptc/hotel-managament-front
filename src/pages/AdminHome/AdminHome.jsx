@@ -52,7 +52,12 @@ const AdminHome = () => {
             case "reservas":
                 return <Reservations/>
             default:
-                return <div>Selecciona una opción</div>;
+                return (
+                    <div className={styles.defaultContent}>
+                        <div>Selecciona una opción</div>
+                        <div className={styles.imageBackground}></div>
+                    </div>
+                )
         }
     };
 
