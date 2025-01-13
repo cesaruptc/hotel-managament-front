@@ -6,6 +6,8 @@ import styles from "./AdminHome.module.css"
 import TopBar from "../../components/TopBar/TopBar.jsx";
 import MenuAdmin from "../../components/MenuAdmin/MenuAdmin.jsx";
 import Hotels from "../../components/Hotels/Hotels.jsx";
+import Users from "../../components/Users/Users.jsx";
+import Reservations from "../../components/Reservations/Reservations.jsx";
 
 const AdminHome = () => {
     const [loading, setLoading] = useState(true);
@@ -44,11 +46,11 @@ const AdminHome = () => {
     const renderContent = () => {
         switch (content) {
             case "usuarios":
-                return <div>Lista de usuarios</div>;
+                return <Users/>
             case "hoteles":
                 return <Hotels/>;
             case "reservas":
-                return <div>Lista de reservas</div>;
+                return <Reservations/>
             default:
                 return <div>Selecciona una opción</div>;
         }

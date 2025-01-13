@@ -11,9 +11,11 @@
 
 .title {
     font-family: Arial, sans-serif;
-    font-size: 2rem;
+    font-size: 2.5rem;
     text-align: center;
     margin-bottom: 20px;
+    text-shadow: 1px 1px 1px green;
+    flex: 1;
 }
 
 .hotelsList {
@@ -67,4 +69,27 @@
 .hotelLocation {
     font-size: 1rem;
     color: #555;
+}
+
+.addButton {
+    color: black;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:none;
+}
+
+.addButton:hover {
+    color: #485921;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    height: 6rem;
+    align-items: center;
+    justify-content: space-between;
 }

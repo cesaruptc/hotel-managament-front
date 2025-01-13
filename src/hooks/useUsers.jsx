@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
 
-export const useHotels = () => {
-    const [hotels, setHotels] = useState([]);
+export const useUsers = () => {
+    const [users, setUsers] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const fetchHotels = async () => {
+    const fetchUsers = async () => {
         setIsLoading(true);
         try {
-            const response = await fetch("https://hotel-managament-back.onrender.com/api/hotels");
+            const response = await fetch("https://hotel-managament-back.onrender.com/api/auth/users");
             if (!response.ok) {
-                throw new Error("Error al cargar los hoteles");
+                throw new Error("Error al cargar los usuarios");
             }
             const data = await response.json();
-            setHotels(data);
+            setUsers(data);
         } catch (err) {
             setError(err.message);
         } finally {
@@ -22,8 +22,8 @@ export const useHotels = () => {
     };
 
     useEffect(() => {
-        fetchHotels();
+        fetchUsers();
     }, []);
 
-    return { hotels, isLoading, error, fetchHotels };
+    return { users, isLoading, error, fetchUsers};
 };

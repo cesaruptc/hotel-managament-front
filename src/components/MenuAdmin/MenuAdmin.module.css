@@ -7,24 +7,28 @@
 }
 
 .navButton {
-    background: none;
+    width: 30rem;
     border: none;
     color: #333;
-    font-size: 18px;
+    font-size: 3rem;
     cursor: pointer;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
     padding: 10px;
-    width: 200px;
     text-align: left;
+    font-family: Arial, sans-serif;
+    background: none;
+    text-shadow: 0 4px 8px rgba(10, 95, 9, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.navButton:hover {
-    color: #007bff;
+.navButton:hover, .navButton.active {
+    transform: scale(1.1);
+    text-shadow: 0 6px 12px rgba(10, 95, 9, 0.5);
 }
 
 .icon {
-    font-size: 24px;
-    margin-right: 10px; /* Espacio entre el icono y el texto */
+    font-size: 4rem;
+    margin-right: 10px;
 }

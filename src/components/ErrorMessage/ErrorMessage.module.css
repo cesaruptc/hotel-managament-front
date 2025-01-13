@@ -1,0 +1,19 @@
+.messageContainer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #f8c8c8;
+    color: #c04343;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
+}
+
+.messageContainer.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-out;
+}

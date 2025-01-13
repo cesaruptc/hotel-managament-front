@@ -1,30 +1,30 @@
 import React, { useState } from "react";
-import styles from "./HotelModal.module.css";
+import styles from "./UserModal.module.css";
 import ErrorMessage from "../ErrorMessage/ErrorMessage.jsx";
 
-const HotelModal = ({ hotel, onClose, onEdit, onDelete }) => {
-    const [editedHotel, setEditedHotel] = useState({...hotel});
+const UserModal = ({ user, onClose, onEdit, onDelete }) => {
+    const [editedUser, setEditedUser] = useState({...user});
     const [errorMessage, setErrorMessage] = useState("");
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setEditedHotel((prev) => ({
+        setEditedUser((prev) => ({
             ...prev,
             [name]: value,
         }));
     };
 
     const handleSave = () => {
-        if (!editedHotel.name.trim() || !editedHotel.location.trim()) {
+        if (!editedUser.email.trim() || !editedUser.role.trim()) {
             setErrorMessage("Todos los campos son obligatorios.");
             return;
         }
         setErrorMessage("");
-        onEdit(editedHotel);
+        onEdit(editedUser);
     };
 
     const handleDelete = () => {
-        onDelete(editedHotel.id);
+        onDelete(editedUser.id);
     };
 
     return (
@@ -33,25 +33,27 @@ const HotelModal = ({ hotel, onClose, onEdit, onDelete }) => {
                 <button className={styles.modalCloseButton} onClick={onClose}>
                     &times;
                 </button>
-                <h2 className={styles.createText}>Editar hotel</h2>
+                <h2 className={styles.createText}>Editar usuario</h2>
                 <form>
-                    <div className={styles.formEdit}>
-                        <label htmlFor="name" className={styles.label}>Nombre del hotel</label>
+                    <div>
+                        <label htmlFor="email" className={styles.label}>Correo electrónico</label>
                         <input
                             type="text"
-                            name = "name"
-                            value={editedHotel.name || ""}
+                            name = "email"
+                            value={editedUser.email || ""}
                             onChange={handleChange}
                             className={styles.input}
                         />
-                        <label htmlFor="location" className={styles.label}>Ubicación</label>
-                        <input
-                            type="text"
-                            name="location"
-                            value={editedHotel.location || ""}
+                        <label htmlFor="role" className={styles.label}>Rol</label>
+                        <select
+                            name="role"
+                            value={editedUser.role || ""}
                             onChange={handleChange}
                             className={styles.input}
-                        />
+                        >
+                            <option value="admin">Admin</option>
+                            <option value="user">User</option>
+                        </select>
                     </div>
                     <div className={styles.buttonsContainer}>
                         <button
@@ -76,4 +78,4 @@ const HotelModal = ({ hotel, onClose, onEdit, onDelete }) => {
     );
 };
 
-export default HotelModal;
+export default UserModal;
