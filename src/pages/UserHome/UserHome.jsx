@@ -2,9 +2,18 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {jwtDecode} from "jwt-decode";
 import Logout from "../../components/Logout/Logout.jsx";
+import Users from "../../components/Users/Users.jsx";
+import Hotels from "../../components/Hotels/Hotels.jsx";
+import Reservations from "../../components/Reservations/Reservations.jsx";
+import styles from "../AdminHome/AdminHome.module.css";
+import TopBar from "../../components/TopBar/TopBar.jsx";
+import MenuAdmin from "../../components/MenuAdmin/MenuAdmin.jsx";
+import MenuUser from "../../components/MenuUser/MenuUser.jsx";
+import UserHotels from "../../components/UserHotels/UserHotels.jsx";
 
 const UserHome = () => {
     const [loading, setLoading] = useState(true);
+    const [content, setContent] = useState("");
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -35,9 +44,26 @@ const UserHome = () => {
         return <div>Loading...</div>;
     }
 
+    const renderContent = () => {
+        switch (content) {
+            case "hoteles":
+                return <UserHotels/>;
+            case "reservas":
+                return <Reservations/>
+            default:
+                return <div>Selecciona una opción</div>;
+        }
+    };
+
     return (
-        <div>
-            <h1>Bienvenido, Usuario</h1>
+        <div className={styles.homeContainer}>
+            <TopBar />
+            <div className={styles.left}>
+                <MenuUser setContent={setContent}></MenuUser>
+            </div>
+            <div className={styles.mainContent}>
+                {renderContent()}
+            </div>
             <Logout />
         </div>
     );
