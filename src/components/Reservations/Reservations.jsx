@@ -22,7 +22,17 @@ const Reservations = () => {
     const [selectedReservation, setSelectedReservation] = useState(null);
 
     const handleReservationClick = (event) => {
-        setSelectedReservation(event.reservation);
+        const reservation = event.reservation;
+
+        const adjustedReservation = {
+            ...reservation,
+            check_in_date: moment(reservation.check_in_date).add(1, 'day').format('YYYY-MM-DD'),
+            check_out_date: moment(reservation.check_out_date).add(1, 'day').format('YYYY-MM-DD'),
+        };
+
+        console.log("DEA")
+
+        setSelectedReservation(adjustedReservation);
     };
 
     const handleCloseModal = () => {
@@ -75,8 +85,8 @@ const Reservations = () => {
 
     const events = reservations.map((reservation) => ({
         title: `Reserva en Hotel: ${hotelNames[reservation.hotel_id] || '......'}`,
-        start: new Date(reservation.check_in_date),
-        end: new Date(reservation.check_out_date),
+        start: moment(reservation.check_in_date).startOf('day').toDate(),
+        end: moment(reservation.check_out_date).add(1, 'day').startOf('day').toDate(),
         allDay: true,
         reservation: {
             title: hotelNames[reservation.hotel_id],
