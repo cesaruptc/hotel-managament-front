@@ -24,6 +24,10 @@ const Users = () => {
         );
     }, [searchTerm, users]);
 
+    const handleSearchChange = (event) => {
+        setSearchTerm(event.target.value);
+    }
+
     if (isLoading) {
         return <div>Loading...</div>;
     }
@@ -48,6 +52,8 @@ const Users = () => {
                 <input
                     type="text"
                     placeholder="Buscar usuarios..."
+                    value = {searchTerm}
+                    onChange={handleSearchChange}
                     className={styles.searchInput}
                 />
             </div>
